@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portail de mes projets GitHub Pages">
+  <title>Mon portail GitHub Pages</title>
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --accent: #58a6ff;
+      --border: #30363d;
+      --surface: #161b22;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      line-height: 1.5;
+      background: #0d1117;
+      color: #e6edf3;
+    }
+
+    header {
+      padding: 60px 20px 35px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 8px;
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    header p {
+      color: #8b949e;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    #search {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      color: inherit;
+      font: inherit;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      display: block;
+      padding: 22px;
+      color: inherit;
+      text-decoration: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      margin: 0 0 16px;
+      color: #8b949e;
+    }
+
+    .card span {
+      color: var(--accent);
+      font-size: .9rem;
+    }
+
+    footer {
+      padding: 35px 20px;
+      text-align: center;
+      color: #8b949e;
+      font-size: .85rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Mon portail GitHub Pages</h1>
+    <p>Tous mes projets web au même endroit.</p>
+  </header>
+
+  <main>
+    <input
+      id="search"
+      type="search"
+      placeholder="Rechercher un projet..."
+      aria-label="Rechercher un projet"
+    >
+
+    <section class="grid" id="projects">
+
+      <!-- Duplique ce bloc pour ajouter un projet -->
+      <a class="card"
+         href="https://MON-UTILISATEUR.github.io/mon-projet-1/"
+         target="_blank"
+         rel="noopener noreferrer">
+        <h2>Projet 1</h2>
+        <p>Description du premier projet.</p>
+        <span>Ouvrir le projet ↗</span>
+      </a>
+
+      <a class="card"
+         href="https://MON-UTILISATEUR.github.io/mon-projet-2/"
+         target="_blank"
+         rel="noopener noreferrer">
+        <h2>Projet 2</h2>
+        <p>Description du deuxième projet.</p>
+        <span>Ouvrir le projet ↗</span>
+      </a>
+
+      <a class="card"
+         href="https://github.com/MON-UTILISATEUR"
+         target="_blank"
+         rel="noopener noreferrer">
+        <h2>Mon profil GitHub</h2>
+        <p>Accéder à mes dépôts et à mon code source.</p>
+        <span>Voir sur GitHub ↗</span>
+      </a>
+
+    </section>
+  </main>
+
+  <footer>
+    Portail personnel · Hébergé avec GitHub Pages
+  </footer>
+
+  <script>
+    const search = document.getElementById("search");
+    const cards = document.querySelectorAll(".card");
+
+    search.addEventListener("input", () => {
+      const query = search.value.toLowerCase();
+
+      cards.forEach(card => {
+        card.hidden = !card.textContent
+          .toLowerCase()
+          .includes(query);
+      });
+    });
+  </script>
+</body>
+</html>
